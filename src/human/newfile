@@ -1,0 +1,27 @@
+        short j = 11;
+        do{
+            System.out.println(j);
+            j++;
+        }while(j<11);
+        System.out.print("\nSystem will get your info, enter your name: ");
+        for (int i = 0; i < 1; i++) {
+            System.out.print("\nName: ");
+            Scanner s = new Scanner(System.in);
+            userName = s.nextLine();
+            System.out.print("Gender: ");
+            gender = s.nextLine();
+            System.out.print("Age: ");
+            age = s.nextShort();
+            System.out.print("Health of 100: ");
+            health = s.nextShort();
+            
+            
+            Person person1 = new Person(userName, gender, age, health);
+            try {
+                PrintWriter writer = new PrintWriter("people-data-file.txt", "UTF-8");
+                writer.println(userName + ", "+gender+ ", "+ age + ", "+
+                        health*1000);
+                writer.close();
+            } catch (IOException e) {
+                // do something
+            }
